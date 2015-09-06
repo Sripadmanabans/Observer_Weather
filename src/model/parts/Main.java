@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Main {
 
+    private static final double KELVIN_TO_CELSIUS = 273.15;
+
     @SerializedName("temp")
     private double temp;
 
@@ -24,14 +26,14 @@ public class Main {
     private double temperatureMaximum;
 
     public double getTemp() {
-        return temp;
+        return temp - KELVIN_TO_CELSIUS;
     }
 
     public double getTemperatureMinimum() {
-        return temperatureMinimum;
+        return temperatureMinimum - KELVIN_TO_CELSIUS;
     }
 
     public double getTemperatureMaximum() {
-        return temperatureMaximum;
+        return temperatureMaximum - KELVIN_TO_CELSIUS;
     }
 }
