@@ -1,5 +1,9 @@
 package runnable;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import model.Response;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,7 +18,12 @@ public class WeatherAPICall implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(sendRequest());
+        Gson gson = new Gson();
+        String response = sendRequest();
+        Response responseModel = null;
+        if(response != null) {
+            responseModel = gson.fromJson(response, Response.class);
+        }
     }
 
     private String sendRequest() {
