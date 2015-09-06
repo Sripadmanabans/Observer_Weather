@@ -23,4 +23,15 @@ public class Main {
     @SerializedName("temp_max")
     private double temperatureMaximum;
 
+    public double getTemp() {
+        return temp;
+    }
+
+    public double getTemperatureMinimum() {
+        return temperatureMinimum;
+    }
+
+    public double getTemperatureMaximum() {
+        return temperatureMaximum;
+    }
 }
