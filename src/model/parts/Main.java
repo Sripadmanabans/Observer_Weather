@@ -1,4 +1,4 @@
-package model.part;
+package model.parts;
 
 import com.google.gson.annotations.SerializedName;
 
