@@ -1,7 +1,7 @@
 package model;
 
 import com.google.gson.annotations.SerializedName;
-import model.part.*;
+import model.parts.*;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * This class holds the response for the api.
  * Created by Sripadmanaban on 9/3/2015.
  */
-public class Response {
+public class WeatherData {
 
     @SerializedName("coord")
     private Coordinates coordinates;
