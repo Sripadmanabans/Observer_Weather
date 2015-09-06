@@ -20,11 +20,16 @@ public class WeatherAPICall implements Runnable {
         Gson gson = new Gson();
         String response = sendRequest();
         WeatherData weatherDataModel = null;
-        if(response != null) {
+        if (response != null) {
             weatherDataModel = gson.fromJson(response, WeatherData.class);
         }
     }
 
+    /**
+     * This is a function that is used to make the call to the api for getting the weather data.
+     *
+     * @return A string that contains the response if everything is okay and a null otherwise.
+     */
     private String sendRequest() {
         StringBuilder builder = null;
         HttpURLConnection connection = null;
@@ -38,7 +43,7 @@ public class WeatherAPICall implements Runnable {
             connection.setDoInput(true);
             connection.setDoOutput(true);
 
-            if(connection.getResponseCode() != 200) {
+            if (connection.getResponseCode() != 200) {
                 throw new IOException(connection.getResponseMessage());
             }
 
@@ -46,17 +51,17 @@ public class WeatherAPICall implements Runnable {
                     new InputStreamReader(connection.getInputStream()));
             builder = new StringBuilder();
             String response;
-            while((response = reader.readLine()) != null) {
+            while ((response = reader.readLine()) != null) {
                 builder.append(response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(connection != null) {
+            if (connection != null) {
                 connection.disconnect();
             }
-            if(reader != null) {
+            if (reader != null) {
                 try {
                     reader.close();
                 } catch (IOException e) {
