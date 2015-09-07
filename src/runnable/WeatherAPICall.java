@@ -2,6 +2,9 @@ package runnable;
 
 import com.google.gson.Gson;
 import model.WeatherData;
+import observers.CurrentConditionsDisplay;
+import observers.MaximumTemperatureDisplay;
+import observers.MinimumTemperatureDisplay;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,9 +22,15 @@ public class WeatherAPICall implements Runnable {
     public void run() {
         Gson gson = new Gson();
         String response = sendRequest();
-        WeatherData weatherDataModel = null;
+        WeatherData weatherData = null;
         if (response != null) {
-            weatherDataModel = gson.fromJson(response, WeatherData.class);
+            weatherData = gson.fromJson(response, WeatherData.class);
+
+            CurrentConditionsDisplay conditionsDisplay = new CurrentConditionsDisplay(weatherData);
+            MaximumTemperatureDisplay maximumTemperatureDisplay = new MaximumTemperatureDisplay(weatherData);
+            MinimumTemperatureDisplay minimumTemperatureDisplay = new MinimumTemperatureDisplay(weatherData);
+
+            weatherData.measurementsChanged();
         }
     }
 
