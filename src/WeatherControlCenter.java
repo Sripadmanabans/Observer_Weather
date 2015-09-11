@@ -15,11 +15,9 @@ public class WeatherControlCenter {
         WeatherAPICall call = new WeatherAPICall();
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
         final ScheduledFuture<?> weatherHandle = executorService.scheduleAtFixedRate(call, 0, 2, TimeUnit.SECONDS);
-        executorService.schedule(new Runnable() {
-            @Override
-            public void run() {
-                weatherHandle.cancel(true);
-            }
+        executorService.schedule(() -> {
+            weatherHandle.cancel(true);
+            System.exit(0);
         }, 8, TimeUnit.SECONDS);
     }
 }
