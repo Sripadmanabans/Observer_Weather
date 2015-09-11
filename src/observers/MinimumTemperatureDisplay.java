@@ -3,6 +3,7 @@ package observers;
 import interfaces.base.Observer;
 import interfaces.base.Subject;
 import interfaces.display.DisplayElement;
+import model.WeatherData;
 
 /**
  * This is the class that is used to display the minimum temperature.
@@ -19,13 +20,13 @@ public class MinimumTemperatureDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double maxTemperature, double minTemperature, int humidity) {
-        this.temperature = minTemperature;
+    public void update(WeatherData weatherData) {
+        temperature = weatherData.getMain().getTemperatureMinimum();
         display();
     }
 
     @Override
     public void display() {
-        System.out.println("The maximum tenperature is " + temperature);
+        System.out.println("The minimum temperature is " + temperature);
     }
 }

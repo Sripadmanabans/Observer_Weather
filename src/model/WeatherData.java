@@ -72,8 +72,7 @@ public class WeatherData implements Subject {
     @Override
     public void notifyObserver() {
         for (Observer observer : observers) {
-            observer.update(main.getTemp(), main.getTemperatureMaximum(), main.getTemperatureMinimum(),
-                    main.getHumidity());
+            observer.update(this);
         }
     }
 
@@ -82,5 +81,9 @@ public class WeatherData implements Subject {
      */
     public void measurementsChanged() {
         notifyObserver();
+    }
+
+    public Main getMain() {
+        return main;
     }
 }

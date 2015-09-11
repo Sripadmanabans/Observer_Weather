@@ -3,6 +3,7 @@ package observers;
 import interfaces.base.Observer;
 import interfaces.base.Subject;
 import interfaces.display.DisplayElement;
+import model.WeatherData;
 
 /**
  * This is the class that displays the maimum temperature.
@@ -19,8 +20,8 @@ public class MaximumTemperatureDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double maxTemperature, double minTemperature, int humidity) {
-        this.temperature = maxTemperature;
+    public void update(WeatherData weatherData) {
+        temperature = weatherData.getMain().getTemperatureMaximum();
         display();
     }
 
