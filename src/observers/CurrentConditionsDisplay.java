@@ -20,13 +20,13 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double maxTemperature, double minTemperature) {
+    public void update(double temperature, double maxTemperature, double minTemperature, int humidity) {
         this.temperature = temperature;
         display();
     }
 
     @Override
     public void display() {
-        System.out.println("The tenperature is " + temperature);
+        System.out.println("The temperature is " + temperature);
     }
 }

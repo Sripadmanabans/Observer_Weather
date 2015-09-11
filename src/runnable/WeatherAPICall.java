@@ -3,6 +3,7 @@ package runnable;
 import com.google.gson.Gson;
 import model.WeatherData;
 import observers.CurrentConditionsDisplay;
+import observers.HeatIndexDisplay;
 import observers.MaximumTemperatureDisplay;
 import observers.MinimumTemperatureDisplay;
 
@@ -29,6 +30,7 @@ public class WeatherAPICall implements Runnable {
             CurrentConditionsDisplay conditionsDisplay = new CurrentConditionsDisplay(weatherData);
             MaximumTemperatureDisplay maximumTemperatureDisplay = new MaximumTemperatureDisplay(weatherData);
             MinimumTemperatureDisplay minimumTemperatureDisplay = new MinimumTemperatureDisplay(weatherData);
+            HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
 
             weatherData.measurementsChanged();
         }

@@ -19,7 +19,7 @@ public class MinimumTemperatureDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double maxTemperature, double minTemperature) {
+    public void update(double temperature, double maxTemperature, double minTemperature, int humidity) {
         this.temperature = minTemperature;
         display();
     }

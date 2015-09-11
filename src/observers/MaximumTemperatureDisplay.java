@@ -19,13 +19,13 @@ public class MaximumTemperatureDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double maxTemperature, double minTemperature) {
+    public void update(double temperature, double maxTemperature, double minTemperature, int humidity) {
         this.temperature = maxTemperature;
         display();
     }
 
     @Override
     public void display() {
-        System.out.println("The maximum tenperature is " + temperature);
+        System.out.println("The maximum temperature is " + temperature);
     }
 }
