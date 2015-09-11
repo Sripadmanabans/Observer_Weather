@@ -13,5 +13,5 @@ public interface Observer {
      * @param maxTemperature A double that contains the maximum temperature in kelvin.
      * @param minTemperature A double that conatins the minimum temperature in kelvin.
      */
-    void update(double temperature, double maxTemperature, double minTemperature);
+    void update(double temperature, double maxTemperature, double minTemperature, int humidity);
 }

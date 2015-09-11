@@ -29,6 +29,10 @@ public class Main {
         return temp - KELVIN_TO_CELSIUS;
     }
 
+    public int getHumidity() {
+        return humidity;
+    }
+
     public double getTemperatureMinimum() {
         return temperatureMinimum - KELVIN_TO_CELSIUS;
     }
